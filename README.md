@@ -45,7 +45,7 @@
 | [interlude-AI](https://github.com/Hndrd0/Interlude-AI) | AI chatbot on GitHub Pages | JS + Groq API |
 | [interlude-OS](https://github.com/Hndrd0/interlude-OS) | KDE Plasma riced to look like windows on Arch | Shell + KDE |
 | [Redmi Note 7 Pro guide](https://github.com/Hndrd0/Redmi-Note-7-Pro-Violet) | bootloader unlock + custom ROM guide | Markdown |
-| [death-note](https://github.com/Hndrd0/death-note) | notebook-style death note rules page | HTML/CSS |
+| [Pdf](https://github.com/Hndrd0/pdf) | Html page designed to show Class 10 pdfs CBSE | HTML/CSS/JS |
 
 </div>
 
