@@ -56,7 +56,4 @@
 
 ![Profile views](https://komarev.com/ghpvc/?username=Hndrd0&style=flat-square&color=blueviolet)
 
-## 🏆 GitHub Trophies
-![](https://github-profile-trophy.vercel.app/?username=Hndrd0&theme=radical&no-frame=false&no-bg=true&margin-w=4)
-
 </div>
