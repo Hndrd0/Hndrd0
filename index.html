@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Me</title>
   <style>
+    :root {
+      --logo-char: "L";
+    }
+
     body {
       margin: 0;
       min-height: 100vh;
@@ -37,6 +41,10 @@
       border: 2px dashed #94a3b8;
     }
 
+    .logo::before {
+      content: var(--logo-char);
+    }
+
     h1 {
       margin: 0.2rem 0 0.8rem;
       font-size: 1.8rem;
@@ -50,7 +58,7 @@
 </head>
 <body>
   <main>
-    <div class="logo">L</div>
+    <div class="logo" role="img" aria-label="Placeholder logo"></div>
     <h1>About Me</h1>
     <p>
       Hi! I’m a developer who enjoys building clean, simple web experiences.
