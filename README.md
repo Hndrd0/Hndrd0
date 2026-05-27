@@ -1,9 +1,6 @@
-<div align="center">
+![](./banner.svg)
 
-# Hardik Choudhary 
-## Hndrd0
-**Linux nerd student Developer**
-~*i use arch btw*
+<div align="center">
 
 [![YouTube](https://img.shields.io/badge/YouTube-%40Hndrd0-FF0000?style=flat-square&logo=youtube&logoColor=white)](https://youtube.com/@Hndrd0) 
 [![GitHub](https://img.shields.io/badge/GitHub-Hndrd0-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/Hndrd0) 
