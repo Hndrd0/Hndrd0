@@ -1,69 +1,124 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Me</title>
-  <style>
-    :root {
-      --logo-char: "L";
-    }
+     <!DOCTYPE html>
+     <html lang="en">
+     <head>
+         <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <title>@Hndrd0 - GitHub Projects</title>
+         <style>
+             * {
+                 margin: 0;
+                 padding: 0;
+                 box-sizing: border-box;
+             }
 
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
-      font-family: Arial, sans-serif;
-      background: #0f172a;
-      color: #f8fafc;
-    }
+             body {
+                 font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+                 line-height: 1.6;
+                 color: #333;
+                 background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                 min-height: 100vh;
+                 display: flex;
+                 align-items: center;
+                 justify-content: center;
+                 padding: 20px;
+             }
 
-    main {
-      width: min(90%, 520px);
-      text-align: center;
-      padding: 2rem;
-      border-radius: 14px;
-      background: #1e293b;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-    }
+             .container {
+                 background: white;
+                 border-radius: 10px;
+                 box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+                 max-width: 800px;
+                 padding: 60px 40px;
+                 text-align: center;
+             }
 
-    .logo {
-      width: 90px;
-      height: 90px;
-      margin: 0 auto 1rem;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      font-size: 2rem;
-      font-weight: 700;
-      background: #334155;
-      border: 2px dashed #94a3b8;
-    }
+             h1 {
+                 font-size: 2.5em;
+                 margin-bottom: 10px;
+                 color: #667eea;
+             }
 
-    .logo::before {
-      content: var(--logo-char);
-    }
+             h2 {
+                 font-size: 1.8em;
+                 margin: 30px 0 20px 0;
+                 color: #667eea;
+             }
 
-    h1 {
-      margin: 0.2rem 0 0.8rem;
-      font-size: 1.8rem;
-    }
+             .username {
+                 font-size: 1.2em;
+                 color: #666;
+                 margin-bottom: 30px;
+             }
 
-    p {
-      margin: 0;
-      line-height: 1.6;
-    }
-  </style>
-</head>
-<body>
-  <main>
-    <div class="logo" role="img" aria-label="Placeholder logo"></div>
-    <h1>About Me</h1>
-    <p>
-      Hi! I’m a developer who enjoys building clean, simple web experiences.
-      This is a placeholder page where I can add more details about myself soon.
-    </p>
-  </main>
-</body>
-</html>
+             .bio {
+                 font-size: 1.1em;
+                 color: #555;
+                 margin-bottom: 40px;
+                 line-height: 1.8;
+             }
+
+             .skills-section {
+                 margin: 40px 0;
+             }
+
+             .skills-section img {
+                 max-width: 100%;
+                 height: auto;
+             }
+
+             .links {
+                 display: flex;
+                 gap: 15px;
+                 justify-content: center;
+                 flex-wrap: wrap;
+                 margin-top: 30px;
+             }
+
+             .links a {
+                 display: inline-block;
+                 padding: 12px 30px;
+                 background: #667eea;
+                 color: white;
+                 text-decoration: none;
+                 border-radius: 5px;
+                 transition: background 0.3s ease;
+                 font-weight: 500;
+             }
+
+             .links a:hover {
+                 background: #764ba2;
+             }
+
+             .github-link {
+                 background: #333;
+             }
+
+             .github-link:hover {
+                 background: #000;
+             }
+         </style>
+     </head>
+     <body>
+         <div class="container">
+             <h1>Hi, I'm @Hndrd0</h1>
+             <p class="username">GitHub Developer</p>
+
+             <p class="bio">
+                 Welcome to my GitHub projects portfolio. I am Just an Self Taught Student who thinks he is a dev
+                 <br><br>
+                 Check out my repositories to see what I'm working on.
+             </p>
+
+             <div class="skills-section">
+                 <h2>My Skills</h2>
+                 <img src="https://skillicons.dev/icons?i=js,html,css,python,java,anaconda,arch,azure,linux,mongodb,vscode,notion" alt="Skills Icons">
+             </div>
+
+             <div class="links">
+                 <a href="https://github.com/Hndrd0" class="github-link">
+                     → View My GitHub
+                 </a>
+             </div>
+         </div>
+     </body>
+     </html>
