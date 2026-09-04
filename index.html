@@ -3,762 +3,591 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hardik Choudhary — Developer & Builder</title>
-  <meta name="description" content="Portfolio of Hardik Choudhary (Hndrd0) — Developer, Builder, and Open Source Enthusiast. Explore projects, skills, and more." />
-  <meta property="og:title" content="Hardik Choudhary — Developer & Builder" />
-  <meta property="og:description" content="Portfolio of Hardik Choudhary (Hndrd0) — Developer, Builder, and Open Source Enthusiast." />
+  <title>Hardik Choudhary | Systems & Open Source Engineer</title>
+  <meta name="description" content="Hardik Choudhary (Hndrd0) - Engineering motion hardware protocols, financial trading engines, acoustic DSP shortcut systems, and lightweight defenses." />
+  
+  <!-- OpenGraph -->
+  <meta property="og:title" content="Hardik Choudhary | Systems & Open Source Engineer" />
+  <meta property="og:description" content="Engineering motion hardware protocols, financial trading engines, acoustic DSP shortcut systems, and lightweight defenses." />
+  <meta property="og:url" content="https://hardik.is-a.dev" />
   <meta property="og:type" content="website" />
+
+  <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-  <style>
-    /* ── RESET & BASE ────────────────────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
 
-    :root {
-      --bg-0: #0a0b0f;
-      --bg-1: #0f1117;
-      --bg-2: #151720;
-      --bg-3: #1c1f2e;
-      --bg-card: rgba(21,23,32,0.8);
-      --border: rgba(99,102,241,0.15);
-      --border-hover: rgba(99,102,241,0.45);
-      --accent: #6366f1;
-      --accent-2: #8b5cf6;
-      --accent-3: #06b6d4;
-      --accent-glow: rgba(99,102,241,0.25);
-      --text-1: #f1f5f9;
-      --text-2: #94a3b8;
-      --text-3: #64748b;
-      --green: #10b981;
-      --font: 'Inter', sans-serif;
-      --mono: 'JetBrains Mono', monospace;
-      --radius: 16px;
-      --radius-sm: 8px;
-      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: var(--font);
-      background: var(--bg-0);
-      color: var(--text-1);
-      overflow-x: hidden;
-      line-height: 1.6;
-    }
-
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: var(--bg-1); }
-    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
-
-    #bg-canvas {
-      position: fixed; top: 0; left: 0;
-      width: 100%; height: 100%;
-      z-index: 0; pointer-events: none;
-    }
-
-    nav {
-      position: fixed; top: 0; width: 100%;
-      z-index: 100;
-      padding: 0 2rem;
-      display: flex; align-items: center; justify-content: space-between;
-      height: 64px;
-      background: rgba(10,11,15,0.7);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-      transition: var(--transition);
-    }
-    nav.scrolled { background: rgba(10,11,15,0.95); border-bottom-color: var(--accent); }
-
-    .nav-logo {
-      font-family: var(--mono);
-      font-weight: 700;
-      font-size: 1.1rem;
-      color: var(--accent);
-      letter-spacing: -0.02em;
-      text-decoration: none;
-    }
-    .nav-logo span { color: var(--text-2); }
-
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a {
-      color: var(--text-2); text-decoration: none;
-      font-size: 0.875rem; font-weight: 500;
-      transition: color var(--transition);
-      position: relative;
-    }
-    .nav-links a::after {
-      content: ''; position: absolute; bottom: -4px; left: 0;
-      width: 0; height: 2px;
-      background: var(--accent);
-      transition: width var(--transition);
-      border-radius: 1px;
-    }
-    .nav-links a:hover { color: var(--text-1); }
-    .nav-links a:hover::after { width: 100%; }
-
-    .nav-cta {
-      background: var(--accent);
-      color: #fff !important;
-      padding: 0.4rem 1rem;
-      border-radius: 6px;
-      font-size: 0.8rem !important;
-      transition: background var(--transition), transform var(--transition) !important;
-    }
-    .nav-cta::after { display: none !important; }
-    .nav-cta:hover { background: var(--accent-2) !important; transform: translateY(-1px); }
-
-    section { position: relative; z-index: 1; }
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
-
-    .section-tag {
-      display: inline-flex; align-items: center; gap: 0.4rem;
-      font-family: var(--mono); font-size: 0.75rem; font-weight: 500;
-      color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase;
-      margin-bottom: 0.75rem;
-    }
-    .section-tag::before { content: '//'; color: var(--accent-3); font-weight: 700; margin-right: 0.25rem; }
-
-    h2.section-title {
-      font-size: clamp(1.8rem, 4vw, 2.5rem);
-      font-weight: 800; letter-spacing: -0.03em;
-      line-height: 1.1; margin-bottom: 1rem;
-      background: linear-gradient(135deg, var(--text-1) 0%, var(--text-2) 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    /* ── HERO ── */
-    #hero {
-      min-height: 100vh;
-      display: flex; align-items: center; justify-content: center;
-      text-align: center; padding: 6rem 2rem 4rem;
-      position: relative; overflow: hidden;
-    }
-
-    .hero-orbs { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
-    .orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.22; animation: orbFloat 8s ease-in-out infinite; }
-    .orb-1 { width: 500px; height: 500px; background: var(--accent); top: -15%; left: -10%; animation-delay: 0s; }
-    .orb-2 { width: 350px; height: 350px; background: var(--accent-2); top: 40%; right: -8%; animation-delay: -3s; }
-    .orb-3 { width: 250px; height: 250px; background: var(--accent-3); bottom: 0; left: 30%; animation-delay: -5s; }
-    @keyframes orbFloat {
-      0%, 100% { transform: translateY(0) scale(1); }
-      50% { transform: translateY(-30px) scale(1.05); }
-    }
-
-    .hero-inner { position: relative; z-index: 1; max-width: 780px; }
-
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: rgba(99,102,241,0.1);
-      border: 1px solid rgba(99,102,241,0.3);
-      color: var(--accent); font-size: 0.8rem; font-weight: 600;
-      padding: 0.4rem 1rem; border-radius: 100px;
-      margin-bottom: 1.5rem;
-      animation: fadeInDown 0.6s ease both;
-    }
-    .hero-badge .dot {
-      width: 7px; height: 7px; border-radius: 50%;
-      background: var(--green); box-shadow: 0 0 8px var(--green);
-      animation: pulse 2s ease infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.6; transform: scale(0.85); }
-    }
-
-    .hero-name {
-      font-size: clamp(3rem, 8vw, 5.5rem);
-      font-weight: 900; letter-spacing: -0.04em; line-height: 1.0;
-      margin-bottom: 0.5rem;
-      animation: fadeInUp 0.7s ease 0.1s both;
-    }
-    .hero-name .first { color: var(--text-1); }
-    .hero-name .last {
-      background: linear-gradient(90deg, var(--accent) 0%, var(--accent-3) 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .hero-handle {
-      font-family: var(--mono); font-size: 1rem; color: var(--text-3);
-      margin-bottom: 1.25rem;
-      animation: fadeInUp 0.7s ease 0.2s both;
-    }
-    .hero-handle span { color: var(--accent-3); }
-
-    .hero-roles {
-      display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem;
-      margin-bottom: 2rem;
-      animation: fadeInUp 0.7s ease 0.3s both;
-    }
-    .role-pill {
-      background: var(--bg-3); border: 1px solid var(--border);
-      color: var(--text-2); font-size: 0.8rem; font-weight: 500;
-      padding: 0.35rem 0.85rem; border-radius: 100px;
-      display: flex; align-items: center; gap: 0.4rem;
-    }
-
-    .hero-desc {
-      color: var(--text-2); font-size: 1.05rem; max-width: 540px;
-      margin: 0 auto 2.5rem;
-      animation: fadeInUp 0.7s ease 0.4s both;
-    }
-
-    .hero-actions {
-      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
-      animation: fadeInUp 0.7s ease 0.5s both;
-    }
-
-    .btn {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      padding: 0.75rem 1.75rem; border-radius: 10px;
-      font-size: 0.9rem; font-weight: 600;
-      text-decoration: none; cursor: pointer; border: none;
-      transition: all var(--transition);
-    }
-    .btn-primary {
-      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
-      color: #fff; box-shadow: 0 4px 24px rgba(99,102,241,0.35);
-    }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(99,102,241,0.5); }
-    .btn-secondary {
-      background: var(--bg-3); color: var(--text-1); border: 1px solid var(--border);
-    }
-    .btn-secondary:hover { border-color: var(--accent); background: rgba(99,102,241,0.08); transform: translateY(-2px); }
-
-    .scroll-indicator {
-      position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
-      display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
-      color: var(--text-3); font-size: 0.7rem; letter-spacing: 0.1em;
-      animation: fadeIn 1s ease 1.2s both; z-index: 1;
-    }
-    .scroll-indicator .arrow {
-      width: 1px; height: 40px;
-      background: linear-gradient(to bottom, var(--accent), transparent);
-      animation: scrollPulse 2s ease infinite;
-    }
-    @keyframes scrollPulse {
-      0%, 100% { opacity: 0.4; } 50% { opacity: 1; }
-    }
-
-    /* ── ABOUT ── */
-    #about { padding: 6rem 0; }
-
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-
-    .about-text p { color: var(--text-2); margin-bottom: 1rem; font-size: 1rem; line-height: 1.8; }
-    .about-text p strong { color: var(--text-1); }
-
-    .about-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem; }
-    .stat-card {
-      background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: var(--radius-sm); padding: 1.25rem; text-align: center;
-      transition: border-color var(--transition), transform var(--transition);
-    }
-    .stat-card:hover { border-color: var(--accent); transform: translateY(-3px); }
-    .stat-num {
-      font-size: 1.75rem; font-weight: 800; letter-spacing: -0.03em;
-      background: linear-gradient(90deg, var(--accent), var(--accent-3));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .stat-label { font-size: 0.75rem; color: var(--text-3); margin-top: 0.25rem; }
-
-    .code-block {
-      background: var(--bg-2); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 1.5rem;
-      font-family: var(--mono); font-size: 0.82rem; line-height: 1.8; width: 100%;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.4); position: relative;
-    }
-    .code-block::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-      background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3));
-      border-radius: var(--radius) var(--radius) 0 0;
-    }
-    .code-dots { display: flex; gap: 6px; margin-bottom: 1rem; }
-    .code-dots span { width: 12px; height: 12px; border-radius: 50%; }
-    .dot-r { background: #ff5f57; }
-    .dot-y { background: #febc2e; }
-    .dot-g { background: #28c840; }
-    .code-line { display: flex; }
-    .code-lnum { color: var(--text-3); min-width: 2rem; user-select: none; }
-    .kw { color: #c792ea; } .fn { color: #82aaff; } .str { color: #c3e88d; }
-    .cm { color: #546e7a; font-style: italic; } .op { color: var(--accent-3); }
-
-    /* ── PROJECTS ── */
-    #projects { padding: 6rem 0; }
-    .projects-header { margin-bottom: 3rem; }
-    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
-
-    .project-card {
-      background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 1.75rem;
-      backdrop-filter: blur(10px); transition: all var(--transition);
-      position: relative; overflow: hidden;
-    }
-    .project-card::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg, var(--accent), var(--accent-3));
-      opacity: 0; transition: opacity var(--transition);
-    }
-    .project-card:hover { border-color: var(--border-hover); transform: translateY(-5px); box-shadow: 0 20px 50px rgba(99,102,241,0.15); }
-    .project-card:hover::before { opacity: 1; }
-
-    .project-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; }
-    .project-icon { font-size: 1.6rem; }
-    .project-links { display: flex; gap: 0.5rem; }
-    .project-link {
-      display: flex; align-items: center; justify-content: center;
-      width: 32px; height: 32px;
-      background: var(--bg-3); border: 1px solid var(--border);
-      border-radius: var(--radius-sm); color: var(--text-2); text-decoration: none;
-      font-size: 0.85rem; transition: all var(--transition);
-    }
-    .project-link:hover { border-color: var(--accent); color: var(--accent); background: rgba(99,102,241,0.1); }
-    .project-name { font-size: 1.05rem; font-weight: 700; color: var(--text-1); margin-bottom: 0.4rem; }
-    .project-desc { color: var(--text-2); font-size: 0.85rem; line-height: 1.6; margin-bottom: 1.25rem; min-height: 3.2em; }
-    .project-meta { display: flex; align-items: center; gap: 1rem; font-size: 0.78rem; color: var(--text-3); }
-    .lang-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
-    .project-lang { display: flex; align-items: center; gap: 0.35rem; }
-
-    .project-loading { text-align: center; color: var(--text-3); padding: 4rem 0; font-family: var(--mono); grid-column: 1 / -1; }
-    .loader {
-      display: inline-block; width: 32px; height: 32px;
-      border: 3px solid var(--border); border-top-color: var(--accent);
-      border-radius: 50%; animation: spin 0.8s linear infinite; margin-bottom: 1rem;
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
-
-    /* ── SKILLS ── */
-    #skills { padding: 6rem 0; }
-    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; margin-top: 3rem; }
-    .skill-card {
-      background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 1.5rem;
-      backdrop-filter: blur(10px); transition: all var(--transition);
-      display: flex; flex-direction: column; align-items: flex-start; gap: 0.75rem;
-      position: relative; overflow: hidden;
-    }
-    .skill-card::after {
-      content: ''; position: absolute; inset: 0; border-radius: inherit;
-      background: radial-gradient(circle at top left, var(--accent-glow), transparent 70%);
-      opacity: 0; transition: opacity var(--transition);
-    }
-    .skill-card:hover { border-color: var(--border-hover); transform: translateY(-3px); }
-    .skill-card:hover::after { opacity: 1; }
-    .skill-icon { font-size: 1.8rem; }
-    .skill-name { font-weight: 600; font-size: 0.95rem; color: var(--text-1); }
-    .skill-bar-wrap { width: 100%; height: 4px; background: var(--bg-3); border-radius: 2px; overflow: hidden; }
-    .skill-bar {
-      height: 100%; border-radius: 2px;
-      background: linear-gradient(90deg, var(--accent), var(--accent-3));
-      width: 0; transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    /* ── STATS ── */
-    #stats { padding: 6rem 0; }
-    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
-    .stats-img-card {
-      background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: var(--radius); overflow: hidden; transition: all var(--transition);
-      display: flex; align-items: center; justify-content: center;
-    }
-    .stats-img-card:hover { border-color: var(--border-hover); transform: translateY(-3px); }
-    .stats-img-card img { width: 100%; display: block; }
-
-    .achievements-row { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; justify-content: center; }
-    .achievement-badge {
-      display: flex; align-items: center; gap: 0.6rem;
-      background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: 100px; padding: 0.5rem 1.1rem;
-      font-size: 0.82rem; font-weight: 600; color: var(--text-1);
-      transition: all var(--transition);
-    }
-    .achievement-badge:hover { border-color: var(--accent); color: var(--accent); }
-
-    /* ── CONTACT ── */
-    #contact { padding: 6rem 0 8rem; }
-    .contact-inner { max-width: 640px; margin: 0 auto; text-align: center; }
-    .contact-subtitle { color: var(--text-2); font-size: 1rem; margin-top: 1rem; margin-bottom: 3rem; }
-    .contact-cards { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
-    .contact-card {
-      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
-      background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 1.75rem 2rem;
-      text-decoration: none; transition: all var(--transition);
-      min-width: 160px; flex: 1; position: relative; overflow: hidden;
-    }
-    .contact-card::before {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(135deg, var(--accent-glow), transparent 60%);
-      opacity: 0; transition: opacity var(--transition);
-    }
-    .contact-card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(99,102,241,0.2); }
-    .contact-card:hover::before { opacity: 1; }
-    .contact-card-icon { font-size: 2rem; position: relative; z-index: 1; }
-    .contact-card-label { font-size: 0.85rem; font-weight: 600; color: var(--text-2); position: relative; z-index: 1; }
-    .contact-card-value { font-size: 0.75rem; color: var(--text-3); font-family: var(--mono); position: relative; z-index: 1; }
-
-    footer {
-      border-top: 1px solid var(--border); padding: 1.5rem 2rem;
-      text-align: center; color: var(--text-3); font-size: 0.8rem;
-      position: relative; z-index: 1;
-    }
-    footer a { color: var(--accent); text-decoration: none; }
-
-    @keyframes fadeInDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .about-grid { grid-template-columns: 1fr; }
-      .about-visual { display: none; }
-      .skills-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-  </style>
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<canvas id="bg-canvas"></canvas>
+  <!-- Interactive Background Particle Canvas & Glowing Atmospheric Orbs -->
+  <canvas id="canvas-particles"></canvas>
+  <div class="glow-orb glow-orb-1"></div>
+  <div class="glow-orb glow-orb-2"></div>
+  <div class="glow-orb glow-orb-3"></div>
 
-<nav id="navbar">
-  <a href="#hero" class="nav-logo">&lt;<span>Hndrd0</span> /&gt;</a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#stats">Stats</a></li>
-    <li><a href="#contact" class="nav-cta">Contact</a></li>
-  </ul>
-</nav>
-
-<section id="hero">
-  <div class="hero-orbs">
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
-  </div>
-  <div class="hero-inner">
-    <div class="hero-badge">
-      <span class="dot"></span>
-      Available for collaboration
-    </div>
-    <h1 class="hero-name">
-      <span class="first">Hardik</span> <span class="last">Choudhary</span>
-    </h1>
-    <p class="hero-handle">@<span>Hndrd0</span> on GitHub</p>
-    <div class="hero-roles">
-      <div class="role-pill">💻 Developer</div>
-      <div class="role-pill">🔧 Builder</div>
-      <div class="role-pill">🌐 Open Source Enthusiast</div>
-      <div class="role-pill">🐧 Linux Tinkerer</div>
-    </div>
-    <p class="hero-desc">
-      I build fast, focused tools — from antivirus engines and Minecraft launchers to chatbots and web apps. If it can be made better, I'll make it.
-    </p>
-    <div class="hero-actions">
-      <a href="#projects" class="btn btn-primary">
-        <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8Z"/></svg>
-        View Projects
+  <!-- Hallmark N5 Floating Pill Navigation -->
+  <header class="site-header">
+    <nav class="nav-pill" aria-label="Main Navigation">
+      <a href="#hero" class="nav-brand">
+        <span class="brand-dot"></span>
+        <span>hardik<span class="brand-domain" style="color: var(--accent-violet);">.is-a.dev</span></span>
       </a>
-      <a href="https://github.com/Hndrd0" target="_blank" rel="noopener" class="btn btn-secondary">
-        <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
-        GitHub Profile
-      </a>
-    </div>
-  </div>
-  <div class="scroll-indicator">
-    <div class="arrow"></div>
-    SCROLL
-  </div>
-</section>
 
-<section id="about">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-text reveal">
-        <p class="section-tag">About Me</p>
-        <h2 class="section-title">Code, Build,<br/>Repeat.</h2>
-        <p>Hey! I'm <strong>Hardik Choudhary</strong> — a developer who enjoys building things that are actually useful. I like working close to the metal: launchers, security tools, system utilities, and everything in between.</p>
-        <p>When I'm not writing code, I'm exploring Linux, flashing custom ROMs on Android devices, or contributing to open source. I believe in shipping fast and keeping things simple.</p>
-        <p>I'm a <strong>GitHub Developer Program Member</strong> and part of the <strong>@therealorgan</strong> organisation.</p>
-        <div class="about-stats">
-          <div class="stat-card">
-            <div class="stat-num" id="stat-repos">12</div>
-            <div class="stat-label">Repositories</div>
+      <ul class="nav-links">
+        <li><a href="#hero" class="active">Overview</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#stack">Stack</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="cmd-badge" aria-label="Open Command Palette" title="Press ⌘K or Ctrl+K">
+          <i class="ri-command-line"></i> <span>⌘K</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ======================================================================
+         HERO SECTION
+         ====================================================================== -->
+    <section id="hero" class="hero-section">
+      <div class="container">
+        <div class="hero-content">
+          <div class="status-pill">
+            <span class="brand-dot"></span>
+            <span>SYSTEMS ARCHITECT & OPEN SOURCE BUILDER</span>
           </div>
-          <div class="stat-card">
-            <div class="stat-num" id="stat-stars">—</div>
-            <div class="stat-label">Stars Earned</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-num">4</div>
-            <div class="stat-label">Achievements</div>
-          </div>
-        </div>
-      </div>
-      <div class="about-visual reveal">
-        <div class="code-block">
-          <div class="code-dots">
-            <span class="dot-r"></span>
-            <span class="dot-y"></span>
-            <span class="dot-g"></span>
-          </div>
-          <div class="code-line"><span class="code-lnum">1</span>&nbsp;<span class="kw">const</span> <span class="fn">me</span> <span class="op">=</span> {</div>
-          <div class="code-line"><span class="code-lnum">2</span>&nbsp;&nbsp;&nbsp;<span class="str">name</span><span class="op">:</span> <span class="str">"Hardik Choudhary"</span>,</div>
-          <div class="code-line"><span class="code-lnum">3</span>&nbsp;&nbsp;&nbsp;<span class="str">alias</span><span class="op">:</span> <span class="str">"Hndrd0"</span>,</div>
-          <div class="code-line"><span class="code-lnum">4</span>&nbsp;&nbsp;&nbsp;<span class="str">loves</span><span class="op">:</span> [<span class="str">"Linux"</span>, <span class="str">"Python"</span>],</div>
-          <div class="code-line"><span class="code-lnum">5</span>&nbsp;&nbsp;&nbsp;<span class="str">os</span><span class="op">:</span> <span class="str">"Linux / Android"</span>,</div>
-          <div class="code-line"><span class="code-lnum">6</span>&nbsp;&nbsp;&nbsp;<span class="str">openSource</span><span class="op">:</span> <span class="kw">true</span>,</div>
-          <div class="code-line"><span class="code-lnum">7</span>&nbsp;&nbsp;&nbsp;<span class="str">available</span><span class="op">:</span> <span class="kw">true</span>,</div>
-          <div class="code-line"><span class="code-lnum">8</span>&nbsp;&nbsp;&nbsp;<span class="fn">build</span><span class="op">:</span> () <span class="op">=&gt;</span> <span class="str">"something cool"</span>,</div>
-          <div class="code-line"><span class="code-lnum">9</span>};</div>
-          <div class="code-line"><span class="code-lnum">10</span>&nbsp;</div>
-          <div class="code-line"><span class="code-lnum">11</span><span class="cm">// currently building...</span></div>
-          <div class="code-line"><span class="code-lnum">12</span><span class="fn">console</span>.<span class="fn">log</span>(<span class="fn">me</span>.<span class="fn">build</span>());</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<section id="projects">
-  <div class="container">
-    <div class="projects-header reveal">
-      <p class="section-tag">Projects</p>
-      <h2 class="section-title">Things I've Built</h2>
-      <p style="color:var(--text-2);max-width:480px;margin-top:0.5rem;">A curated selection of my favourite projects, fetched live from GitHub.</p>
-    </div>
-    <div class="projects-grid" id="projects-grid">
-      <div class="project-loading">
-        <div class="loader"></div>
-        <p>Fetching from GitHub API...</p>
-      </div>
-    </div>
-  </div>
-</section>
+          <h1 class="hero-title">
+            Hi, I'm <span class="name-highlight">Hardik Choudhary</span>
+          </h1>
 
-<section id="skills">
-  <div class="container">
-    <div class="reveal">
-      <p class="section-tag">Skills</p>
-      <h2 class="section-title">What I Work With</h2>
-    </div>
-    <div class="skills-grid" id="skills-grid"></div>
-  </div>
-</section>
+          <p class="hero-subtitle">
+            I engineer <strong>low-latency hardware bridges</strong>, <strong>high-frequency financial execution engines</strong>, <strong>real-time acoustic DSP detectors</strong>, and <strong>zero-telemetry local defenses</strong>. Focused on uncompromising performance, clean math, and local-first software.
+          </p>
 
-<section id="stats">
-  <div class="container">
-    <div class="reveal">
-      <p class="section-tag">GitHub Stats</p>
-      <h2 class="section-title">By the Numbers</h2>
-    </div>
-    <div class="stats-grid reveal">
-      <div class="stats-img-card">
-        <img src="https://github-readme-stats.vercel.app/api?username=Hndrd0&show_icons=true&theme=tokyonight&bg_color=0f1117&border_color=6366f1&title_color=6366f1&icon_color=06b6d4&text_color=94a3b8&count_private=true" alt="Hardik's GitHub Stats" loading="lazy" />
-      </div>
-      <div class="stats-img-card">
-        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Hndrd0&layout=compact&theme=tokyonight&bg_color=0f1117&border_color=6366f1&title_color=6366f1&text_color=94a3b8" alt="Top Languages" loading="lazy" />
-      </div>
-      <div class="stats-img-card">
-        <img src="https://github-readme-streak-stats.herokuapp.com/?user=Hndrd0&theme=tokyonight&background=0f1117&border=6366f1&stroke=6366f1&ring=6366f1&fire=f59e0b&currStreakNum=f1f5f9&sideNums=f1f5f9&currStreakLabel=94a3b8&sideLabels=94a3b8&dates=64748b" alt="GitHub Streak" loading="lazy" />
-      </div>
-    </div>
-    <div class="achievements-row reveal">
-      <div class="achievement-badge">🧠 Galaxy Brain</div>
-      <div class="achievement-badge">🦈 Pull Shark</div>
-      <div class="achievement-badge">🎯 YOLO</div>
-      <div class="achievement-badge">⚡ Quickdraw</div>
-      <div class="achievement-badge">🛠️ Developer Program Member</div>
-      <div class="achievement-badge">⭐ GitHub Pro</div>
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="container">
-    <div class="contact-inner reveal">
-      <p class="section-tag">Contact</p>
-      <h2 class="section-title">Let's Connect</h2>
-      <p class="contact-subtitle">Have a project idea, collaboration, or just want to say hi? I'm always down to chat.</p>
-      <div class="contact-cards">
-        <a href="mailto:hndrd2681@gmail.com" class="contact-card" id="contact-email">
-          <span class="contact-card-icon">✉️</span>
-          <span class="contact-card-label">Email</span>
-          <span class="contact-card-value">hndrd2681@gmail.com</span>
-        </a>
-        <a href="https://github.com/Hndrd0" target="_blank" rel="noopener" class="contact-card" id="contact-github">
-          <span class="contact-card-icon">
-            <svg width="28" height="28" fill="var(--text-1)" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
-          </span>
-          <span class="contact-card-label">GitHub</span>
-          <span class="contact-card-value">@Hndrd0</span>
-        </a>
-        <a href="https://discord.com/users/hndrd0" target="_blank" rel="noopener" class="contact-card" id="contact-discord">
-          <span class="contact-card-icon">
-            <svg width="28" height="22" fill="#5865F2" viewBox="0 0 24 18"><path d="M20.317 1.492a19.825 19.825 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 1.492a.07.07 0 0 0-.032.027C.533 6.093-.32 10.555.099 14.961a.08.08 0 0 0 .031.055 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 12.278c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
-          </span>
-          <span class="contact-card-label">Discord</span>
-          <span class="contact-card-value">hndrd0</span>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <p>Designed &amp; built by <a href="https://github.com/Hndrd0" target="_blank" rel="noopener">Hardik Choudhary</a> &middot; <span id="year"></span></p>
-</footer>
-
-<script>
-// ── CANVAS PARTICLES ─────────────────────────────────────────────
-const canvas = document.getElementById('bg-canvas');
-const ctx = canvas.getContext('2d');
-let W, H, particles = [];
-
-function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
-resize();
-window.addEventListener('resize', resize);
-
-class Particle {
-  constructor() { this.reset(); }
-  reset() {
-    this.x = Math.random() * W; this.y = Math.random() * H;
-    this.r = Math.random() * 1.5 + 0.4;
-    this.a = Math.random() * 0.5 + 0.1;
-    this.vx = (Math.random() - 0.5) * 0.15;
-    this.vy = (Math.random() - 0.5) * 0.15;
-  }
-}
-for (let i = 0; i < 120; i++) particles.push(new Particle());
-
-(function draw() {
-  ctx.clearRect(0, 0, W, H);
-  particles.forEach(p => {
-    ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(99,102,241,${p.a})`; ctx.fill();
-    p.x += p.vx; p.y += p.vy;
-    if (p.x < 0 || p.x > W || p.y < 0 || p.y > H) p.reset();
-  });
-  requestAnimationFrame(draw);
-})();
-
-// ── NAVBAR ───────────────────────────────────────────────────────
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 50));
-
-// ── REVEAL OBSERVER ──────────────────────────────────────────────
-const revealObs = new IntersectionObserver((entries) => {
-  entries.forEach((e, i) => {
-    if (e.isIntersecting) {
-      setTimeout(() => e.target.classList.add('visible'), i * 80);
-      revealObs.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.08 });
-document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
-
-// ── YEAR ─────────────────────────────────────────────────────────
-document.getElementById('year').textContent = new Date().getFullYear();
-
-// ── LANGUAGE COLORS ──────────────────────────────────────────────
-const LANG_COLORS = {
-  JavaScript: '#f1e05a', TypeScript: '#3178c6', Python: '#3572A5',
-  Java: '#b07219', HTML: '#e34c26', CSS: '#563d7c', Shell: '#89e051',
-};
-const ICONS = {
-  OptiLauncher: '🚀', 'Interlude-Defender': '🛡️', XCraft: '⛏️',
-  linkshortner: '🔗', 'Class10-PDFs': '📚', 'Redmi-Note-7-Pro-Violet': '📱',
-};
-const HIGHLIGHTED = ['OptiLauncher','Interlude-Defender','XCraft','linkshortner','Class10-PDFs','Redmi-Note-7-Pro-Violet'];
-
-// ── LOAD PROJECTS ────────────────────────────────────────────────
-async function loadProjects() {
-  const grid = document.getElementById('projects-grid');
-  try {
-    const res = await fetch('https://api.github.com/users/Hndrd0/repos?per_page=100&sort=updated');
-    if (!res.ok) throw new Error('API error');
-    const repos = await res.json();
-
-    const totalStars = repos.reduce((s, r) => s + r.stargazers_count, 0);
-    document.getElementById('stat-stars').textContent = totalStars;
-
-    const ordered = HIGHLIGHTED.map(n => repos.find(r => r.name === n)).filter(Boolean);
-    grid.innerHTML = '';
-
-    ordered.forEach((repo, i) => {
-      const lang = repo.language || 'Unknown';
-      const color = LANG_COLORS[lang] || '#6366f1';
-      const icon = ICONS[repo.name] || '📦';
-      const desc = repo.description || 'No description available.';
-      const card = document.createElement('div');
-      card.className = 'project-card reveal';
-      card.innerHTML = `
-        <div class="project-card-top">
-          <span class="project-icon">${icon}</span>
-          <div class="project-links">
-            <a href="${repo.html_url}" target="_blank" rel="noopener" class="project-link" title="GitHub">
-              <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+          <div class="hero-cta-group">
+            <a href="#projects" class="btn-primary">
+              <span>Explore 5 Core Projects</span>
+              <i class="ri-arrow-down-line"></i>
             </a>
-            ${repo.homepage ? `<a href="${repo.homepage}" target="_blank" rel="noopener" class="project-link" title="Live">🔗</a>` : ''}
+
+            <button onclick="copyEmail()" class="btn-secondary">
+              <i class="ri-mail-send-line"></i>
+              <span>hndrd2681@gmail.com</span>
+            </button>
+
+            <a href="https://github.com/Hndrd0" target="_blank" rel="noopener" class="btn-secondary">
+              <i class="ri-github-fill"></i>
+              <span>GitHub (Hndrd0)</span>
+            </a>
+          </div>
+
+          <!-- Live Engineering Telemetry Stats Strip -->
+          <div class="hero-stats-strip">
+            <div class="stat-item">
+              <div class="stat-value">100<span class="stat-unit">Hz</span></div>
+              <div class="stat-label">IMU Sensor Fusion</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">100<span class="stat-unit">/100</span></div>
+              <div class="stat-label">Lighthouse Audit</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">&lt;28<span class="stat-unit">MB</span></div>
+              <div class="stat-label">Acoustic DSP Footprint</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">0<span class="stat-unit">ms</span></div>
+              <div class="stat-label">External Broker API Delay</div>
+            </div>
           </div>
         </div>
-        <div class="project-name">${repo.name}</div>
-        <div class="project-desc">${desc}</div>
-        <div class="project-meta">
-          <span class="project-lang"><span class="lang-dot" style="background:${color}"></span>${lang}</span>
-          <span>⭐ ${repo.stargazers_count}</span>
-          <span>🍴 ${repo.forks_count}</span>
-        </div>`;
-      grid.appendChild(card);
-      revealObs.observe(card);
-    });
-  } catch {
-    grid.innerHTML = `<div class="project-loading"><p>⚠️ Could not load projects. <a href="https://github.com/Hndrd0" target="_blank" rel="noopener" style="color:var(--accent)">View on GitHub →</a></p></div>`;
-  }
-}
-loadProjects();
+      </div>
+    </section>
 
-// ── SKILLS ──────────────────────────────────────────────────────
-const SKILLS = [
-  { name: 'Python', icon: '🐍', level: 85 },
-  { name: 'JavaScript / TS', icon: '⚡', level: 78 },
-  { name: 'HTML / CSS', icon: '🎨', level: 82 },
-  { name: 'Shell / Bash', icon: '🐚', level: 70 },
-  { name: 'Linux', icon: '🐧', level: 80 },
-  { name: 'Android / ROM', icon: '📱', level: 75 },
-  { name: 'APIs & Integrations', icon: '🔌', level: 72 },
-];
+    <!-- ======================================================================
+         CORE PROJECTS SECTION (Deep Interactive Showcase)
+         ====================================================================== -->
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">// SELECTED WORKS</span>
+          <h2 class="section-title">Engineered Systems & Flagships</h2>
+          <p class="section-desc">
+            A curated portfolio of five production systems spanning hardware protocol reverse engineering, algorithmic trading infrastructure, digital signal processing, and firmware tools.
+          </p>
+        </div>
 
-const skillsGrid = document.getElementById('skills-grid');
-const barObs = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      const bar = e.target.querySelector('.skill-bar');
-      if (bar) setTimeout(() => { bar.style.width = bar.dataset.level + '%'; }, 200);
-      barObs.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.3 });
+        <div class="projects-grid">
 
-SKILLS.forEach(s => {
-  const card = document.createElement('div');
-  card.className = 'skill-card reveal';
-  card.innerHTML = `
-    <div class="skill-icon">${s.icon}</div>
-    <div class="skill-name">${s.name}</div>
-    <div class="skill-bar-wrap"><div class="skill-bar" data-level="${s.level}"></div></div>`;
-  skillsGrid.appendChild(card);
-  revealObs.observe(card);
-  barObs.observe(card);
-});
-</script>
+          <!-- 01. ANDROMOTE -->
+          <article class="project-card" style="--card-accent: rgba(129, 140, 248, 0.25); --btn-accent: var(--accent-indigo);">
+            <div class="card-mouse-glow"></div>
+            <div class="project-layout">
+              <div class="project-info">
+                <div class="project-meta-strip">
+                  <span class="project-index">01</span>
+                  <span class="project-badge badge-hardware"><i class="ri-gamepad-line"></i> HARDWARE PROTOCOL</span>
+                  <span class="project-badge" style="background: rgba(255,255,255,0.06); color: var(--text-secondary);">DOLPHIN EMULATOR</span>
+                </div>
+                <h3 class="project-name">
+                  Andromote
+                </h3>
+                <p class="project-summary">
+                  Transforms any modern Android smartphone into a zero-latency, motion-tracked Wii Remote for PC gaming and Dolphin Emulator. Implements real-time Kalman sensor fusion, Cemuhook DSU UDP packet broadcasting, and a desktop Qt control bridge.
+                </p>
+                <div class="project-tech-tags">
+                  <span class="tech-tag">Kotlin / Android</span>
+                  <span class="tech-tag">DSU / Cemuhook UDP</span>
+                  <span class="tech-tag">Python (PySide/Qt)</span>
+                  <span class="tech-tag">React 18 + Anime.js</span>
+                  <span class="tech-tag">CI/CD Actions</span>
+                </div>
+                <div class="project-actions">
+                  <button class="btn-card-primary" data-project-key="andromote">
+                    <i class="ri-cpu-line"></i> System Architecture
+                  </button>
+                  <a href="https://github.com/Hndrd0/Andromote" target="_blank" rel="noopener" class="btn-card-ghost">
+                    <i class="ri-github-fill"></i> Source
+                  </a>
+                  <a href="https://github.com/Hndrd0/Andromote/releases" target="_blank" rel="noopener" class="btn-card-ghost">
+                    <i class="ri-download-2-line"></i> APK Release
+                  </a>
+                </div>
+              </div>
+
+              <!-- Interactive Gyroscope Telemetry Widget -->
+              <div class="demo-widget-container" id="andromote-stage">
+                <div class="gyro-stage">
+                  <div class="gyro-phone-model" id="andromote-phone">
+                    <span>IMU SENSOR</span>
+                  </div>
+                  <div class="gyro-telemetry">
+                    <span>PITCH: <strong id="tel-pitch">0.0°</strong></span>
+                    <span>ROLL: <strong id="tel-roll">0.0°</strong></span>
+                    <span>YAW: <strong id="tel-yaw">0.0°</strong></span>
+                  </div>
+                  <div style="font-size: 0.7rem; color: var(--text-tertiary); margin-top: 0.35rem; font-family: var(--font-mono);">
+                    Hover & move cursor over phone to simulate 3D gyroscope
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 02. GREEN JOURNAL -->
+          <article class="project-card" style="--card-accent: rgba(16, 185, 129, 0.25); --btn-accent: var(--accent-emerald);">
+            <div class="card-mouse-glow"></div>
+            <div class="project-layout">
+              <div class="project-info">
+                <div class="project-meta-strip">
+                  <span class="project-index">02</span>
+                  <span class="project-badge badge-fintech"><i class="ri-line-chart-line"></i> FINTECH ENGINE</span>
+                  <span class="project-badge" style="background: rgba(16, 185, 129, 0.1); color: var(--accent-emerald);">LIGHTHOUSE 100/100</span>
+                </div>
+                <h3 class="project-name">
+                  Green Journal
+                </h3>
+                <p class="project-summary">
+                  A high-velocity financial analytics engine and 1-click trade sync extension for Indian equity & F&O traders. Integrates directly with Zerodha Kite, Groww, Dhan, Angel One, and Upstox without costly API credentials, backed by Canvas charting and Appwrite serverless calculations.
+                </p>
+                <div class="project-tech-tags">
+                  <span class="tech-tag">React / Vite</span>
+                  <span class="tech-tag">Chrome Extension (MV3)</span>
+                  <span class="tech-tag">Canvas Lightweight Charts</span>
+                  <span class="tech-tag">Firebase & Appwrite</span>
+                  <span class="tech-tag">Sub-second Cold Start</span>
+                </div>
+                <div class="project-actions">
+                  <button class="btn-card-primary" data-project-key="greenjournal">
+                    <i class="ri-file-chart-line"></i> Deep Dive
+                  </button>
+                  <button onclick="showToast('Green Journal: Production Engine Active')" class="btn-card-ghost">
+                    <i class="ri-shield-check-line"></i> Verified 100/100
+                  </button>
+                </div>
+              </div>
+
+              <!-- Interactive Market Streaming Ticker Widget -->
+              <div class="demo-widget-container">
+                <div class="market-streamer">
+                  <div class="market-header">
+                    <span>NIFTY 50 REAL-TIME</span>
+                    <span class="market-pnl">+₹18,420.00 (+1.84%)</span>
+                  </div>
+                  <canvas id="candle-canvas" class="candles-canvas"></canvas>
+                  <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-tertiary);">
+                    <span>BROKER: ZERODHA / GROWW SYNC</span>
+                    <span style="color: var(--accent-emerald);">LATENCY: 12ms</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 03. THUDDINGTON -->
+          <article class="project-card" style="--card-accent: rgba(245, 158, 11, 0.25); --btn-accent: var(--accent-amber);">
+            <div class="card-mouse-glow"></div>
+            <div class="project-layout">
+              <div class="project-info">
+                <div class="project-meta-strip">
+                  <span class="project-index">03</span>
+                  <span class="project-badge badge-audio"><i class="ri-volume-up-line"></i> AUDIO DSP</span>
+                  <span class="project-badge" style="background: rgba(245, 158, 11, 0.1); color: var(--accent-amber);">WINDOWS UTILITY</span>
+                </div>
+                <h3 class="project-name">
+                  Thuddington (Thump-Shortcut)
+                </h3>
+                <p class="project-summary">
+                  A hands-free Windows application that maps physical desk knocks and knuckle thumps into custom OS shortcuts and macros. Uses real-time microphone stream ingestion, spectral flux onset energy algorithms, and temporal debouncing with a sub-28MB RAM footprint.
+                </p>
+                <div class="project-tech-tags">
+                  <span class="tech-tag">Python 3.12</span>
+                  <span class="tech-tag">PySide6 (Qt)</span>
+                  <span class="tech-tag">sounddevice</span>
+                  <span class="tech-tag">numpy FFT / Energy</span>
+                  <span class="tech-tag">Win32 API</span>
+                </div>
+                <div class="project-actions">
+                  <button class="btn-card-primary" data-project-key="thuddington">
+                    <i class="ri-sound-module-line"></i> DSP Pipeline
+                  </button>
+                  <a href="https://github.com/Hndrd0/thuddington" target="_blank" rel="noopener" class="btn-card-ghost">
+                    <i class="ri-github-fill"></i> Source
+                  </a>
+                  <a href="https://github.com/Hndrd0/thuddington/releases" target="_blank" rel="noopener" class="btn-card-ghost">
+                    <i class="ri-download-line"></i> Download
+                  </a>
+                </div>
+              </div>
+
+              <!-- Interactive Waveform Visualizer Widget -->
+              <div class="demo-widget-container">
+                <div class="waveform-stage">
+                  <canvas id="thuddington-canvas" class="waveform-canvas"></canvas>
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <button id="knock-btn" class="waveform-trigger-btn">
+                      <i class="ri-hand-coin-line"></i> Simulate Desk Knock
+                    </button>
+                    <span id="knock-alert" style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-tertiary);">
+                      Awaiting acoustic onset...
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 04. INTERLUDE DEFENDER -->
+          <article class="project-card" style="--card-accent: rgba(244, 63, 94, 0.25); --btn-accent: var(--accent-rose);">
+            <div class="card-mouse-glow"></div>
+            <div class="project-layout">
+              <div class="project-info">
+                <div class="project-meta-strip">
+                  <span class="project-index">04</span>
+                  <span class="project-badge badge-security"><i class="ri-shield-keyhole-line"></i> LOCAL SECURITY</span>
+                  <span class="project-badge" style="background: rgba(244, 63, 94, 0.1); color: var(--accent-rose);">ZERO TELEMETRY</span>
+                </div>
+                <h3 class="project-name">
+                  Interlude Defender
+                </h3>
+                <p class="project-summary">
+                  A local, uncompromising threat detection and process surveillance engine built in Python. Designed to run completely silent and lightweight, continuously analyzing system execution trees, persistence run keys, and suspicious DLL injections without sending a single byte to the cloud.
+                </p>
+                <div class="project-tech-tags">
+                  <span class="tech-tag">Python 3</span>
+                  <span class="tech-tag">Modular Architecture</span>
+                  <span class="tech-tag">Process Tree Watcher</span>
+                  <span class="tech-tag">100% Offline</span>
+                  <span class="tech-tag">&lt;40MB RAM</span>
+                </div>
+                <div class="project-actions">
+                  <button class="btn-card-primary" data-project-key="defender">
+                    <i class="ri-scan-2-line"></i> Engine Specs
+                  </button>
+                  <a href="https://github.com/Hndrd0/Interlude-Defender" target="_blank" rel="noopener" class="btn-card-ghost">
+                    <i class="ri-github-fill"></i> Source
+                  </a>
+                </div>
+              </div>
+
+              <!-- Interactive Radar Scanner Widget -->
+              <div class="demo-widget-container">
+                <div class="scanner-stage">
+                  <div class="scanner-radar">
+                    <div class="scanner-beam"></div>
+                    <div style="z-index: 2; display: flex; justify-content: space-between; width: 100%;">
+                      <span>HOOK_WATCHER: ACTIVE</span>
+                      <span style="color: var(--accent-emerald);">STATUS: SECURE</span>
+                    </div>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; color: var(--text-tertiary); font-size: 0.72rem;">
+                    <span>SIGNATURE: HEURISTIC 2026</span>
+                    <span>OUTBOUND: 0 BYTES</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 05. REDMI NOTE 7 PRO (VIOLET) -->
+          <article class="project-card" style="--card-accent: rgba(34, 211, 238, 0.25); --btn-accent: var(--accent-cyan);">
+            <div class="card-mouse-glow"></div>
+            <div class="project-layout">
+              <div class="project-info">
+                <div class="project-meta-strip">
+                  <span class="project-index">05</span>
+                  <span class="project-badge badge-guide"><i class="ri-terminal-box-line"></i> FIRMWARE & OS</span>
+                  <span class="project-badge" style="background: rgba(34, 211, 238, 0.1); color: var(--accent-cyan);">OPEN SOURCE GUIDE</span>
+                </div>
+                <h3 class="project-name">
+                  Redmi Note 7 Pro (Violet) Guide
+                </h3>
+                <p class="project-summary">
+                  Comprehensive engineering guide for unlocking the bootloader, navigating Qualcomm EDL recovery protocols, flashing custom partition recoveries (TWRP/OrangeFox), and deploying clean AOSP/LineageOS custom ROMs on Snapdragon 675 hardware.
+                </p>
+                <div class="project-tech-tags">
+                  <span class="tech-tag">Fastboot / ADB</span>
+                  <span class="tech-tag">Qualcomm EDL</span>
+                  <span class="tech-tag">TWRP / OrangeFox</span>
+                  <span class="tech-tag">AOSP Kernel</span>
+                  <span class="tech-tag">Partition Recovery</span>
+                </div>
+                <div class="project-actions">
+                  <button class="btn-card-primary" data-project-key="violet">
+                    <i class="ri-book-read-line"></i> Protocol Guide
+                  </button>
+                  <a href="https://github.com/Hndrd0/Redmi-Note-7-Pro-Violet" target="_blank" rel="noopener" class="btn-card-ghost">
+                    <i class="ri-github-fill"></i> Documentation
+                  </a>
+                </div>
+              </div>
+
+              <!-- Interactive Fastboot Shell Widget -->
+              <div class="demo-widget-container">
+                <div class="shell-stage">
+                  <div><span class="shell-prompt">$</span> fastboot devices</div>
+                  <div style="color: var(--text-tertiary);">f74a819b    fastboot</div>
+                  <div><span class="shell-prompt">$</span> fastboot flash recovery twrp.img</div>
+                  <div style="color: var(--accent-emerald);">Sending 'recovery' (65536 KB)... OKAY [ 1.42s]</div>
+                  <div style="color: var(--accent-emerald);">Writing 'recovery'... OKAY [ 0.28s]</div>
+                  <div><span class="shell-prompt">$</span> fastboot reboot recovery</div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         TECHNICAL STACK & CAPABILITIES
+         ====================================================================== -->
+    <section id="stack" class="section" style="background: rgba(10, 12, 18, 0.6);">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">// ARSENAL & PROFICIENCIES</span>
+          <h2 class="section-title">Technical Competencies</h2>
+          <p class="section-desc">
+            Disciplined software engineering across systems, firmware, signal analysis, and reactive web applications.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-category-card">
+            <div class="skill-cat-header">
+              <div class="skill-icon-box"><i class="ri-cpu-line"></i></div>
+              <h3 class="skill-cat-title">Hardware & Protocols</h3>
+            </div>
+            <ul class="skill-items">
+              <li>DSU / Cemuhook UDP Packet Streams</li>
+              <li>Android Sensor Fusion (Kalman Filter, IMU)</li>
+              <li>Qualcomm EDL & Fastboot Partitioning</li>
+              <li>Socket Programming & Serial Communication</li>
+            </ul>
+          </div>
+
+          <div class="skill-category-card">
+            <div class="skill-cat-header">
+              <div class="skill-icon-box" style="color: var(--accent-cyan); background: rgba(34,211,238,0.1);"><i class="ri-sound-module-line"></i></div>
+              <h3 class="skill-cat-title">Systems & Audio DSP</h3>
+            </div>
+            <ul class="skill-items">
+              <li>Python 3 & PySide6 (Qt) Desktop UI</li>
+              <li>Acoustic Onset Detection (sounddevice, numpy)</li>
+              <li>Windows API Automation & Keyboard Hooks</li>
+              <li>Memory-constrained Process Architecture</li>
+            </ul>
+          </div>
+
+          <div class="skill-category-card">
+            <div class="skill-cat-header">
+              <div class="skill-icon-box" style="color: var(--accent-emerald); background: rgba(16,185,129,0.1);"><i class="ri-line-chart-line"></i></div>
+              <h3 class="skill-cat-title">Fintech & High-Load Web</h3>
+            </div>
+            <ul class="skill-items">
+              <li>Canvas Lightweight Charts Engine</li>
+              <li>Chrome Extension Development (Manifest V3)</li>
+              <li>React 18, TypeScript, Vite & Anime.js</li>
+              <li>Firebase Firestore & Appwrite Functions</li>
+            </ul>
+          </div>
+
+          <div class="skill-category-card">
+            <div class="skill-cat-header">
+              <div class="skill-icon-box" style="color: var(--accent-rose); background: rgba(244,63,94,0.1);"><i class="ri-shield-cross-line"></i></div>
+              <h3 class="skill-cat-title">Security & Disciplines</h3>
+            </div>
+            <ul class="skill-items">
+              <li>Process Hierarchy Heuristics Surveillance</li>
+              <li>Local-first Zero Telemetry Verification</li>
+              <li>Lighthouse 100/100 Performance Discipline</li>
+              <li>Automated CI/CD Workflow Builds</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         CONTACT SECTION & COLOPHON (Hallmark Ft5 Statement)
+         ====================================================================== -->
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="contact-card-banner">
+          <span class="section-tag" style="color: var(--accent-violet);">// OPEN DISPATCH</span>
+          <h2 class="contact-headline">Let's Build Systems That Matter.</h2>
+          <p class="contact-sub">
+            Available for technical collaborations, high-performance systems engineering, and open-source tooling.
+          </p>
+
+          <div class="contact-button-row">
+            <button onclick="copyEmail()" class="btn-primary">
+              <i class="ri-file-copy-line"></i>
+              <span>Copy Email (hndrd2681@gmail.com)</span>
+            </button>
+
+            <a href="mailto:hndrd2681@gmail.com" class="btn-secondary">
+              <i class="ri-mail-open-line"></i>
+              <span>Send Email</span>
+            </a>
+
+            <a href="https://github.com/Hndrd0" target="_blank" rel="noopener" class="btn-secondary">
+              <i class="ri-github-fill"></i>
+              <span>GitHub @Hndrd0</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Colophon / Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <span>© 2026 Hardik Choudhary (Hndrd0).</span>
+        <span style="margin-left: 0.5rem; color: var(--text-muted);">All rights reserved.</span>
+      </div>
+
+      <div class="footer-domain">
+        <span>DOMAIN: </span>
+        <a href="https://hardik.is-a.dev" style="color: var(--accent-cyan); text-decoration: none;">hardik.is-a.dev</a>
+      </div>
+
+      <div style="font-size: 0.8rem; color: var(--text-muted);">
+        Crafted with <strong style="color: var(--accent-violet);">Anime.js</strong> & Hallmark Midnight
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======================================================================
+       INTERACTIVE DEEP-DIVE MODAL DRAWER
+       ====================================================================== -->
+  <div id="project-modal" class="modal-overlay" role="dialog" aria-modal="true">
+    <div class="modal-dialog">
+      <button id="modal-close" class="modal-close-btn" aria-label="Close Modal">
+        <i class="ri-close-line"></i>
+      </button>
+
+      <div style="margin-bottom: var(--space-4);">
+        <span id="modal-badge" class="project-badge badge-hardware">SYSTEM SPECS</span>
+        <h3 id="modal-title" style="font-size: 1.8rem; font-weight: 800; color: #ffffff; margin-top: 0.5rem;"></h3>
+        <p id="modal-tagline" style="color: var(--text-secondary); font-size: 0.95rem;"></p>
+      </div>
+
+      <div class="modal-tabs">
+        <button class="modal-tab-btn active" data-tab-target="pane-arch">Architecture</button>
+        <button class="modal-tab-btn" data-tab-target="pane-stack">Tech Stack</button>
+        <button class="modal-tab-btn" data-tab-target="pane-highlights">Key Features</button>
+      </div>
+
+      <div id="pane-arch" class="modal-tab-pane active"></div>
+      <div id="pane-stack" class="modal-tab-pane"></div>
+      <div id="pane-highlights" class="modal-tab-pane"></div>
+
+      <div id="modal-links" style="display: flex; gap: var(--space-3); margin-top: var(--space-8); padding-top: var(--space-4); border-top: 1px solid var(--border-subtle);"></div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       COMMAND PALETTE (⌘K / Ctrl+K)
+       ====================================================================== -->
+  <div id="cmd-modal" class="modal-overlay" role="dialog" aria-modal="true">
+    <div class="cmd-dialog">
+      <div class="cmd-input-wrap">
+        <i class="ri-search-line" style="color: var(--accent-cyan); font-size: 1.1rem;"></i>
+        <input type="text" id="cmd-input" class="cmd-input" placeholder="Type a command or project name..." autofocus />
+        <span class="cmd-badge" style="cursor: default;">ESC</span>
+      </div>
+
+      <ul class="cmd-list">
+        <li class="cmd-item" data-action="#projects">
+          <span><i class="ri-folder-open-line"></i> Browse 5 Selected Projects</span>
+          <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">#projects</span>
+        </li>
+        <li class="cmd-item" data-action="#stack">
+          <span><i class="ri-cpu-line"></i> View Technical Stack & Arsenal</span>
+          <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">#stack</span>
+        </li>
+        <li class="cmd-item" data-action="copy-email">
+          <span><i class="ri-file-copy-line"></i> Copy Contact Email to Clipboard</span>
+          <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-emerald);">hndrd2681</span>
+        </li>
+        <li class="cmd-item" data-action="https://github.com/Hndrd0">
+          <span><i class="ri-github-fill"></i> Visit GitHub Profile</span>
+          <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-violet);">Hndrd0</span>
+        </li>
+        <li class="cmd-item" data-action="https://github.com/Hndrd0/Andromote">
+          <span><i class="ri-gamepad-line"></i> Open Andromote Repository</span>
+          <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">Repo</span>
+        </li>
+        <li class="cmd-item" data-action="https://github.com/Hndrd0/thuddington">
+          <span><i class="ri-volume-up-line"></i> Open Thuddington Repository</span>
+          <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">Repo</span>
+        </li>
+        <li class="cmd-item" data-action="https://github.com/Hndrd0/Interlude-Defender">
+          <span><i class="ri-shield-line"></i> Open Interlude Defender Repository</span>
+          <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">Repo</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Anime.js CDN & Main Application Script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
+
